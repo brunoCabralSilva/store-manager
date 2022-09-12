@@ -1,4 +1,8 @@
-const { allProductsModel, oneProductModel } = require('../models/productsModel');
+const {
+  allProductsModel,
+  oneProductModel,
+  registerProductModel,
+} = require('../models/productsModel');
 
 const allProductsService = async (req, res) => {
   const query = await allProductsModel();
@@ -13,4 +17,10 @@ const oneProductService = async (req, res) => {
   } return res.status(404).json({ message: 'Product not found' });
 };
 
-module.exports = { allProductsService, oneProductService };
+const registerProductService = async (req, res) => {
+  const { name } = req.body;
+  const query = await registerProductModel(name);
+  return res.status(201).json(query);
+};
+
+module.exports = { allProductsService, oneProductService, registerProductService };

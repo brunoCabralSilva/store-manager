@@ -1,5 +1,5 @@
 const express = require('express');
-const products = require('./controllers/products');
+const products = require('./controllers/productsControl');
 
 const app = express();
 
@@ -11,6 +11,7 @@ app.get('/', (_request, response) => {
 });
 
 app.use('/products', products);
+
 // não remova essa exportação: é para o avaliador funcionar
 // você pode registrar suas rotas normalmente, como o exemplo acima
 // você deve usar o arquivo server.js para executar sua aplicação 

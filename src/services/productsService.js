@@ -4,23 +4,23 @@ const {
   registerProductModel,
 } = require('../models/productsModel');
 
-const allProductsService = async (req, res) => {
+const allProductsService = async () => {
   const query = await allProductsModel();
-  return res.status(200).json(query);
+  return query;
 };
 
-const oneProductService = async (req, res) => {
-  const { id } = req.params;
+const oneProductService = async (id) => {
   const query = await oneProductModel(id);
-  if (query) {
-    return res.status(200).json(query);
-  } return res.status(404).json({ message: 'Product not found' });
+  return query;
 };
 
-const registerProductService = async (req, res) => {
-  const { name } = req.body;
+const registerProductService = async (name) => {
   const query = await registerProductModel(name);
-  return res.status(201).json(query);
+  return query;
 };
 
-module.exports = { allProductsService, oneProductService, registerProductService };
+module.exports = {
+  allProductsService,
+  oneProductService,
+  registerProductService,
+};

@@ -17,7 +17,7 @@ const addProductListModel = async (body, id) => {
   const [results] = await connection
     .execute(
       `SELECT product_id AS productId, quantity
-      FROM StoreManager.sales_products WHERE sale_id = ?`, [id],
+      FROM StoreManager.sales_products WHERE sale_id = ? ORDER BY products_id`, [id],
     );
   const valor = { id, results };
   return (valor);

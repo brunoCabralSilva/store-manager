@@ -2,6 +2,7 @@ const {
   allProductsService,
   oneProductService,
   registerProductService,
+  updateProductService,
 } = require('../services/productsService');
 
 const allProductsControl = async (req, res) => {
@@ -22,4 +23,18 @@ const registerProductControl = async (req, res) => {
   return res.status(201).json(item);
 };
 
-module.exports = { allProductsControl, oneProductControl, registerProductControl };
+const updateProductControl = async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  const item = await updateProductService(id, name);
+  if (item) {
+    return res.status(200).json(item);
+  } return res.status(404).json({ message: 'Product not found' });
+};
+
+module.exports = {
+  allProductsControl,
+  oneProductControl,
+  registerProductControl,
+  updateProductControl,
+};

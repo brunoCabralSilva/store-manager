@@ -23,4 +23,32 @@ const addProductListModel = async (body, id) => {
   return (valor);
 };
 
-module.exports = { addProductListModel, addSalesModel };
+const allSalesModel = async () => {
+  const [results] = await connection
+    .execute(
+      `SELECT s.id AS saleId,
+        s.date,
+        sp.product_id AS productId,
+        sp.quantity
+        FROM sales AS s
+        INNER JOIN sales_products AS sp
+        ORDER BY id, product_id`,
+    );
+  return results;
+};
+
+const oneSaleModel = async (id) => {
+  const [results] = await connection
+    .execute(
+      `SELECT s.date,
+      sp.product_id AS productId,
+      sp.quantity
+      FROM StoreManager.sales AS s
+      INNER JOIN sales_products AS sp
+      WHERE s.id = ?
+      ORDER BY id, product_id`, [id],
+  );
+  return results;
+};
+
+module.exports = { addProductListModel, addSalesModel, allSalesModel, oneSaleModel };

@@ -2,6 +2,7 @@ const {
   allProductsModel,
   oneProductModel,
   registerProductModel,
+  updateProductModel,
 } = require('../models/productsModel');
 
 const allProductsService = async () => {
@@ -19,8 +20,18 @@ const registerProductService = async (name) => {
   return query;
 };
 
+const updateProductService = async (id, name) => {
+  const query = await oneProductService(id);
+  if (query === undefined) {
+    return false;
+  } 
+  const query2 = await updateProductModel(id, name);
+  return query2;
+};
+
 module.exports = {
   allProductsService,
   oneProductService,
   registerProductService,
+  updateProductService,
 };

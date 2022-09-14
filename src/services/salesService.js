@@ -1,5 +1,6 @@
 const { oneProductModel } = require('../models/productsModel');
-const { addProductListModel, addSalesModel } = require('../models/salesModel');
+const { addProductListModel, addSalesModel, oneSaleModel } = require('../models/salesModel');
+const { allSalesModel } = require('../models/salesModel');
 
 const searchPidService = async (body) => {
   const searchId = await Promise.all(
@@ -13,4 +14,14 @@ const searchPidService = async (body) => {
   return value;
 };
 
-module.exports = { searchPidService };
+const allSalesService = async () => {
+  const allSales = await allSalesModel();
+  return allSales;
+};
+
+const oneSaleService = async (id) => {
+  const oneSale = await oneSaleModel(id);
+  return oneSale;
+};
+
+module.exports = { searchPidService, allSalesService, oneSaleService };

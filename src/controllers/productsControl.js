@@ -3,6 +3,7 @@ const {
   oneProductService,
   registerProductService,
   updateProductService,
+  deleteProductService,
 } = require('../services/productsService');
 
 const allProductsControl = async (req, res) => {
@@ -32,9 +33,18 @@ const updateProductControl = async (req, res) => {
   } return res.status(404).json({ message: 'Product not found' });
 };
 
+const deleteProductControl = async (req, res) => {
+  const { id } = req.params;
+  const del = await deleteProductService(id);
+  if (del) {
+    return res.status(204).json();
+  } return res.status(404).json({ message: 'Product not found' });
+};
+
 module.exports = {
   allProductsControl,
   oneProductControl,
   registerProductControl,
   updateProductControl,
+  deleteProductControl,
 };

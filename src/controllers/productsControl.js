@@ -12,8 +12,7 @@ const allProductsControl = async (req, res) => {
 };
 
 const oneProductControl = async (req, res) => {
-  const { id } = req.params;
-  const item = await oneProductService(id);
+  const item = await oneProductService(req.params.id);
   if (item) {
     return res.status(200).json(item);
   } return res.status(404).json({ message: 'Product not found' });

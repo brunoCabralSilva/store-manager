@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const salesControl = require('../../../src/controllers/salesControl');
 const stubs = require('../../../src/services/salesService');
 
-describe('Teste da camada Control', () => {
+describe('Testa a Rota Sales na camada Control', () => {
   const objectId = [
     {
       "date": "2022-09-18T14:45:17.000Z",

@@ -4,7 +4,7 @@
 // const salesService = require('../../../src/services/salesService');
 // const stubs = require('../../../src/models/salesModel');
 
-// describe('Teste da camada Control', () => {
+// describe('Testa a Rota Sale na camada Service', () => {
 //   const objectReturn = [
 //     {
 //       "saleId": 1,

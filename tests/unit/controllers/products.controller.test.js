@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const productController = require('../../../src/controllers/productsControl');
 const productService = require('../../../src/services/productsService');
 
-describe('Teste da camada Control', () => {
+describe('Testa a Rota Products na camada Control', () => {
   
   const objectReturn = { id: 3, name: 'Escudo do Capitão América' };
 

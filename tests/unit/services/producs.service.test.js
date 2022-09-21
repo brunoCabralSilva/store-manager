@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const producstService = require('../../../src/services/productsService');
 const productsModel = require('../../../src/models/productsModel');
 
-describe('Testa a camada service de products', () => {
+describe('Testa a Rota Products na camada Service', () => {
   const allproducts = [
     {
       "id": 1,

@@ -32,7 +32,6 @@ const updateProductService = async (id, name) => {
 
 const deleteProductService = async (id) => {
   const query = await oneProductService(id);
-  console.log(query);
   if (query === undefined) {
     return false;
   }

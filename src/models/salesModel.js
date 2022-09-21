@@ -18,7 +18,7 @@ const addProductListModel = async (body, id) => {
     .execute(
       `SELECT product_id AS productId, quantity
       FROM StoreManager.sales_products WHERE sale_id = ? ORDER BY product_id`, [id],
-    );
+  );
   const valor = { id, results };
   return (valor);
 };
@@ -35,7 +35,6 @@ const allSalesModel = async () => {
         ON s.id = sp.sale_id
         ORDER BY id, product_id`,
   );
-  console.log(results);
   return results;
 };
 
